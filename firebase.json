@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "site": "blog-paku-web",
+    "public": "out",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

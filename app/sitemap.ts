@@ -1,0 +1,17 @@
+import { getBlogPosts } from "@/utils";
+
+export const baseUrl = "https://paku.pe";
+
+export default async function sitemap() {
+  let blogs = getBlogPosts().map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: post.metadata.date,
+  }));
+
+  let routes = ["", "/blog"].map((route) => ({
+    url: `${baseUrl}${route}`,
+    lastModified: new Date().toISOString().split("T")[0],
+  }));
+
+  return [...routes, ...blogs];
+}
